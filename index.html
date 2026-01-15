@@ -79,23 +79,23 @@
 
     /* Dark Theme (Cyan) */
     html[data-theme="dark"] {
-      --background: #050509;
+      --background: #020204; /* Deeper Black */
       --text-primary: #F0F2F5;
       --text-secondary: #9DA3AE;
       --accent: #00FFFF;
       --accent-rgb: 0, 255, 255;
       --accent-dark: #00D1D1;
-      --surface: rgba(22, 24, 29, 0.6);
-      --surface-inset: #101018;
-      --border: rgba(var(--accent-rgb), 0.15);
-      --glow: rgba(var(--accent-rgb), 0.2);
+      --surface: rgba(13, 14, 18, 0.7); /* Slightly more opaque glass */
+      --surface-inset: #0a0a0f;
+      --border: rgba(var(--accent-rgb), 0.12);
+      --glow: rgba(var(--accent-rgb), 0.15);
       --shadow-color: rgba(var(--accent-rgb), 0.3);
       --shadow-color-hover: rgba(var(--accent-rgb), 0.4);
       --cursor-color: var(--accent);
       --cursor-shadow-color: rgba(var(--accent-rgb), 0.6);
       --cursor-dot-color: rgba(var(--accent-rgb), 0.2);
-      --scanline-color: rgba(var(--accent-rgb), 0.05);
-      --grid-color: rgba(var(--accent-rgb), 0.1);
+      --scanline-color: rgba(var(--accent-rgb), 0.04);
+      --grid-color: rgba(var(--accent-rgb), 0.08);
     }
 
     /* Light Theme (Cyan) */
@@ -135,6 +135,32 @@
     html[data-theme="light"] body {
       background-image: radial-gradient(rgba(var(--accent-rgb), 0.2) 1px, transparent 1px);
       background-size: 35px 35px;
+    }
+
+    /* --- Glassmorphism & Noise --- */
+    .grain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* --- Reveal on Scroll --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .body-no-scroll {
@@ -840,6 +866,7 @@
 </head>
 
 <body>
+  <div class="grain-overlay"></div>
   <div id="preloader">
     <div class="triangle-loader">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Loading animation">
@@ -849,6 +876,32 @@
   </div>
   <div id="root"></div>
   <!-- Deployed by AgentBash on 2025-10-10 07:28:06 -->
+  <script>
+    // Reveal on Scroll Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      // We will need to observe elements once they are mounted by React.
+      // Since this is a SPA, we can observe using a MutationObserver on #root.
+      const root = document.getElementById('root');
+      const mutationObserver = new MutationObserver(() => {
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+      });
+      mutationObserver.observe(root, { childList: true, subtree: true });
+    });
+  </script>
 </body>
 
 </html>
