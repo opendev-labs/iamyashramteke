@@ -959,6 +959,14 @@
           title.classList.add('oranged-font-QBET-tiltle');
         });
 
+        // FIX: Remove "Case Study" header from the modal
+        // The modal typically renders this strictly as "Case Study" in an H2 or H3
+        const caseStudyHeaders = Array.from(document.querySelectorAll('h2, h3')).filter(el => el.textContent.trim() === 'Case Study');
+        caseStudyHeaders.forEach(header => {
+          header.style.display = 'none';
+        });
+
+
         // Enhance & Rename Website Buttons
         const liveLinks = Array.from(document.querySelectorAll('a')).filter(a =>
           a.textContent.includes('Live Demo') ||
@@ -988,7 +996,7 @@
       };
 
       // Periodic check because elements might be rendered late by React
-      setInterval(enhanceUI, 1000);
+      setInterval(enhanceUI, 100); // Increased frequency for snappier removal
       enhanceUI();
     });
   </script>
