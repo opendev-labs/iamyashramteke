@@ -79,13 +79,15 @@
 
     /* Dark Theme (Cyan) */
     html[data-theme="dark"] {
-      --background: #020204; /* Deeper Black */
+      --background: #020204;
+      /* Deeper Black */
       --text-primary: #F0F2F5;
       --text-secondary: #9DA3AE;
       --accent: #00FFFF;
       --accent-rgb: 0, 255, 255;
       --accent-dark: #00D1D1;
-      --surface: rgba(13, 14, 18, 0.7); /* Slightly more opaque glass */
+      --surface: rgba(13, 14, 18, 0.7);
+      /* Slightly more opaque glass */
       --surface-inset: #0a0a0f;
       --border: rgba(var(--accent-rgb), 0.12);
       --glow: rgba(var(--accent-rgb), 0.15);
@@ -98,25 +100,76 @@
       --grid-color: rgba(var(--accent-rgb), 0.08);
     }
 
-    /* Light Theme (Cyan) */
+    /* Light Theme (Orange) */
     html[data-theme="light"] {
-      --background: #F8F9FA;
-      --text-primary: #1F2937;
-      --text-secondary: #6B7280;
-      --accent: #0891B2;
-      --accent-rgb: 8, 145, 178;
-      --accent-dark: #06738F;
-      --surface: #FFFFFF;
-      --surface-inset: #F1F5F9;
-      --border: #E5E7EB;
-      --glow: rgba(var(--accent-rgb), 0.25);
-      --shadow-color: rgba(var(--accent-rgb), 0.3);
-      --shadow-color-hover: rgba(var(--accent-rgb), 0.4);
-      --cursor-color: var(--text-primary);
-      --cursor-shadow-color: rgba(var(--accent-rgb), 0.3);
+      --background: #FFFFFF;
+      --text-primary: #121417;
+      --text-secondary: #586374;
+      --accent: #FF5A1F;
+      /* High-contrast Orange */
+      --accent-rgb: 255, 90, 31;
+      --accent-dark: #cc4819;
+      --surface: rgba(245, 247, 250, 0.7);
+      --surface-inset: #f1f3f7;
+      --border: rgba(var(--accent-rgb), 0.12);
+      --glow: rgba(var(--accent-rgb), 0.15);
+      --shadow-color: rgba(var(--accent-rgb), 0.2);
+      --shadow-color-hover: rgba(var(--accent-rgb), 0.25);
+      --cursor-color: var(--accent);
+      --cursor-shadow-color: rgba(var(--accent-rgb), 0.5);
       --cursor-dot-color: rgba(var(--accent-rgb), 0.2);
-      --scanline-color: rgba(var(--accent-rgb), 0.08);
-      --grid-color: rgba(var(--accent-rgb), 0.15);
+      --scanline-color: rgba(var(--accent-rgb), 0.03);
+      --grid-color: rgba(var(--accent-rgb), 0.05);
+    }
+
+    /* --- QBET Special Styling --- */
+    .oranged-font-QBET-tiltle {
+      color: #FF6B00 !important;
+      background: linear-gradient(135deg, #FF9E00 0%, #FF6B00 50%, #FF3D00 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4));
+      font-weight: 800 !important;
+    }
+
+    /* Premium Live Demo Button Styling */
+    .live-demo-button-enhanced {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1;
+    }
+
+    .live-demo-button-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      opacity: 0.1;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .live-demo-button-enhanced:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px var(--glow);
+      color: var(--accent) !important;
+    }
+
+    .live-demo-button-enhanced:hover::before {
+      opacity: 0.2;
+    }
+
+    /* QBET Orange Button Variant */
+    .live-demo-button-qbet {
+      --accent: #FF6B00;
+      --accent-rgb: 255, 107, 0;
+      --glow: rgba(255, 107, 0, 0.3);
+      border-color: rgba(255, 107, 0, 0.4) !important;
     }
 
     body {
@@ -202,7 +255,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-fill-color: transparent;
     }
 
     html[data-theme="light"] .gradient-text {
@@ -210,7 +262,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-fill-color: transparent;
     }
 
     @keyframes shimmer-text {
@@ -234,7 +285,6 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-fill-color: transparent;
       animation: shimmer-text 6s infinite linear;
       animation-delay: 2s;
     }
@@ -877,8 +927,8 @@
   <div id="root"></div>
   <!-- Deployed by AgentBash on 2025-10-10 07:28:06 -->
   <script>
-    // Reveal on Scroll Logic
     document.addEventListener('DOMContentLoaded', () => {
+      // Reveal on Scroll Logic
       const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -900,6 +950,36 @@
         revealElements.forEach(el => observer.observe(el));
       });
       mutationObserver.observe(root, { childList: true, subtree: true });
+
+      // --- Dynamic QBET Styling & Button Enhancement ---
+      const enhanceUI = () => {
+        // Find QBET Titles
+        const qbetTitles = Array.from(document.querySelectorAll('h1, h2, h3')).filter(el => el.textContent.trim() === 'QBET');
+        qbetTitles.forEach(title => {
+          title.classList.add('oranged-font-QBET-tiltle');
+        });
+
+        // Enhance Live Demo Buttons
+        const liveLinks = Array.from(document.querySelectorAll('a')).filter(a => a.textContent.includes('Live Demo') || a.textContent.includes('Live URL'));
+        liveLinks.forEach(link => {
+          if (!link.classList.contains('live-demo-button-enhanced')) {
+            link.classList.add('live-demo-button-enhanced');
+
+            // Check if it's related to QBET
+            const isQBET = link.href.toLowerCase().includes('qbet') ||
+              link.closest('.grid-cols-1')?.textContent.includes('QBET') ||
+              link.closest('section')?.textContent.includes('QBET');
+
+            if (isQBET) {
+              link.classList.add('live-demo-button-qbet');
+            }
+          }
+        });
+      };
+
+      // Periodic check because elements might be rendered late by React
+      setInterval(enhanceUI, 1000);
+      enhanceUI();
     });
   </script>
 </body>
