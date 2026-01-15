@@ -959,9 +959,19 @@
           title.classList.add('oranged-font-QBET-tiltle');
         });
 
-        // Enhance Live Demo Buttons
-        const liveLinks = Array.from(document.querySelectorAll('a')).filter(a => a.textContent.includes('Live Demo') || a.textContent.includes('Live URL'));
+        // Enhance & Rename Website Buttons
+        const liveLinks = Array.from(document.querySelectorAll('a')).filter(a =>
+          a.textContent.includes('Live Demo') ||
+          a.textContent.includes('Live URL') ||
+          a.textContent.includes('Website')
+        );
+
         liveLinks.forEach(link => {
+          // Rename if it contains old text
+          if (link.textContent.includes('Live Demo') || link.textContent.includes('Live URL')) {
+            link.textContent = 'Website';
+          }
+
           if (!link.classList.contains('live-demo-button-enhanced')) {
             link.classList.add('live-demo-button-enhanced');
 
