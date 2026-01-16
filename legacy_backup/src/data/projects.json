@@ -1,0 +1,291 @@
+[
+  {
+    "title": "QBET",
+    "slug": "qbet",
+    "description": "A revolutionary programming language that uses the laws of the universe. QBET (Quantum Bit Entanglement Theory) is a consciousness-driven computational framework that bridges quantum mechanics, information theory, and universal principles into executable code.",
+    "tags": [
+      "Developed"
+    ],
+    "repoUrl": "https://github.com/opendev-labs/QBET",
+    "liveUrl": "https://opendev-labs.github.io/QBET/",
+    "features": [
+      {
+        "title": "Zero-Entropy Conduction",
+        "description": "Maintains absolute systemic integrity by separating high-level declaration from low-level mechanical manifestation protocols.",
+        "icon": "shield"
+      },
+      {
+        "title": "Three-Layer Sovereign Architecture",
+        "description": "Enforces a strict hierarchy (Creation, Execution, Law) to prevent logical decay and ensure deterministic reality collapse.",
+        "icon": "layers"
+      },
+      {
+        "title": "Law-Bound Soundness",
+        "description": "All manifested states are cryptographically verified against the persistent Kernel Law Contract (c.qb) to ensure universal safety.",
+        "icon": "lock"
+      },
+      {
+        "title": "Universal Snap Portability",
+        "description": "Distributed via Snap Store, providing an immutable, atomic, and global conduction layer for immediate deployment on any workstation.",
+        "icon": "package"
+      }
+    ]
+  },
+  {
+    "title": "GitHub Sync Desk",
+    "slug": "gh-sync-desk",
+    "description": "High-Performance Synchronization Engine for Cloud & Local Workflows. Modern, Electron-based desktop application for Enterprise-grade repository lifecycle management.",
+    "tags": [
+      "Developed",
+      "Beta"
+    ],
+    "repoUrl": "https://github.com/opendev-labs/gh-sync-desk",
+    "liveUrl": null,
+    "features": [
+      {
+        "title": "Enterprise Control Center",
+        "description": "A high-density unified dashboard providing a holistic overview of your GitHub profile and cross-repository synchronization status.",
+        "icon": "layout"
+      },
+      {
+        "title": "Intelligent Sync Engine",
+        "description": "Predictive status monitoring that detects Ahead, Behind, and Uncommitted states in real-time with atomic sync protocols.",
+        "icon": "refresh-cw"
+      },
+      {
+        "title": "Glassmorphism UI/UX",
+        "description": "A stunning hardware-accelerated interface featuring non-linear easing, premium translucency, and high-contrast dark mode aesthetics.",
+        "icon": "monitor"
+      },
+      {
+        "title": "Data Recovery Intelligence",
+        "description": "Advanced workstation migration logic that allows you to Init & Connect existing local folders back to GitHub seamlessly.",
+        "icon": "database"
+      }
+    ]
+  },
+  {
+    "title": "Quantum-API",
+    "slug": "quantum-api",
+    "description": "RESTful API delivering quantum computing capabilities through an easy-to-use developer interface. Leverages PennyLane, Qiskit, and FastAPI.",
+    "tags": [
+      "Developed"
+    ],
+    "repoUrl": "https://github.com/opendev-labs/Quantum-API",
+    "liveUrl": null,
+    "features": [
+      {
+        "title": "Quantum Simulation Endpoints",
+        "description": "High-performance RESTful interfaces for executing complex quantum circuits on simulated backends with minimal latency.",
+        "icon": "zap"
+      },
+      {
+        "title": "FastAPI Infrastructure",
+        "description": "Built on the lightning-fast FastAPI framework, ensuring high concurrency, automatic validation, and production-grade reliability.",
+        "icon": "server"
+      },
+      {
+        "title": "Hardware Execution Layer",
+        "description": "A unified interface that bridges simulation with real quantum processing units (QPUs) using Pennylane-Qiskit bridges.",
+        "icon": "cpu"
+      },
+      {
+        "title": "Interactive Documentation",
+        "description": "Automatically generated Swagger/OpenAPI documentation enabling rapid integration and testing for institutional developers.",
+        "icon": "book"
+      }
+    ]
+  },
+  {
+    "title": "Quantum-compute",
+    "slug": "quantum-compute",
+    "description": "Advanced quantum computing algorithms and simulations. Exploring the frontiers of quantum information science and computational advantage.",
+    "tags": [
+      "Developed"
+    ],
+    "repoUrl": "https://github.com/opendev-labs/Quantum-compute",
+    "liveUrl": null,
+    "features": [
+      {
+        "title": "Advanced Algorithm Suite",
+        "description": "A collection of state-of-the-art quantum algorithms focusing on optimization, factorization, and quantum walk simulations.",
+        "icon": "code"
+      },
+      {
+        "title": "High-Fidelity Simulations",
+        "description": "Realistic quantum environments with high-fidelity state-vector and matrix product state (MPS) simulation capabilities.",
+        "icon": "grid"
+      },
+      {
+        "title": "Quantum Information Theory",
+        "description": "Tools for analyzing entanglement entropy, quantum fidelity, and decoherence profiles in multi-qubit systems.",
+        "icon": "activity"
+      },
+      {
+        "title": "Frontier Advantage Testing",
+        "description": "Exploring computational boundaries to identify specific problems where quantum advantage can be realistically demonstrated.",
+        "icon": "target"
+      }
+    ]
+  },
+  {
+    "title": "Quantum-ML",
+    "slug": "quantum-ml",
+    "description": "Cutting-edge framework integrating quantum computing with machine learning. Enables high-performance quantum tasks directly through an API.",
+    "tags": [
+      "Developed"
+    ],
+    "repoUrl": "https://github.com/opendev-labs/Quantum-ML",
+    "liveUrl": null,
+    "features": [
+      {
+        "title": "Seamless Circuit Integration",
+        "description": "Effortlessly integrate quantum circuits into classical ML pipelines with automated parameter mapping and optimization.",
+        "icon": "git-merge"
+      },
+      {
+        "title": "Scalable Orchestration",
+        "description": "High-performance backend designed to scale quantum machine learning tasks across distributed high-compute nodes efficiently.",
+        "icon": "layers"
+      },
+      {
+        "title": "RESTful Quantum Hub",
+        "description": "A centralized hub enabling high-performance quantum tasks through a unified API, facilitating rapid prototyping and deployment.",
+        "icon": "globe"
+      },
+      {
+        "title": "Deep Optimization Kernels",
+        "description": "Utilizes PennyLane-driven gradient descent to automatically optimize quantum circuits for specific machine learning objectives.",
+        "icon": "trending-up"
+      }
+    ]
+  },
+  {
+    "title": "AgentBash",
+    "slug": "agentbash",
+    "description": "An expert AI development partner that automates entire workflows with a single command. AgentBash uses a multi-agent architecture to generate complete, executable scripts for Windows (PowerShell) and Linux (Bash). Simply provide a high-level goal, approve the AI's intelligent plan, and run the generated script to build full applications, refactor existing code, or automate complex tasks. It's a sophisticated platform that bridges natural language requests and ready-to-run development automation.",
+    "tags": [
+      "Active in Demo (Team Only)"
+    ],
+    "repoUrl": "https://github.com/opendev-labs/agentbash.io",
+    "liveUrl": "https://agentbash.vercel.app/",
+    "features": [
+      {
+        "title": "Multi-Agent Architecture",
+        "description": "Uses a suite of specialized agents, each an expert in its domain (e.g., React, Docker, CI/CD), to handle complex, multi-faceted development tasks with precision.",
+        "icon": "cpu"
+      },
+      {
+        "title": "Full Application Generation",
+        "description": "Generates a single, complete script that builds an entire project structure, installs dependencies, and writes all necessary code for a fully functional application from a high-level goal.",
+        "icon": "code"
+      },
+      {
+        "title": "Intelligent & Interactive Process",
+        "description": "The AI analyzes your request, presents a clear, step-by-step plan for approval, generates the script, and can even assist with debugging.",
+        "icon": "brain"
+      },
+      {
+        "title": "Developer-Focused Tools",
+        "description": "Includes a \"Script Book\" to save and reuse scripts, and the ability to upload existing projects for AI-powered analysis, refactoring, or feature additions.",
+        "icon": "tool"
+      }
+    ]
+  },
+  {
+    "title": "Auto-Notion",
+    "slug": "auto-notion",
+    "description": "High-Fidelity AI Agent Orchestration & Institutional Automation. Deploy hyperintelligent AI agents to autonomously manage your Instagram sales funnel with cosmic timing and institutional precision.",
+    "tags": [
+      "Under Development"
+    ],
+    "repoUrl": "https://github.com/opendev-labs/auto-notion",
+    "liveUrl": "https://auto-notion.web.app",
+    "features": [
+      {
+        "title": "Agentic Orchestration",
+        "description": "AI agents that autonomously resolve tickets, qualify leads, and update CRM records with institutional-grade 99.8% precision.",
+        "icon": "users"
+      },
+      {
+        "title": "Cosmic Timing Engine",
+        "description": "Proprietary algorithms analyzing psychologically optimal windows for peak engagement and conversion based on cosmic attention flows.",
+        "icon": "clock"
+      },
+      {
+        "title": "Institutional Security",
+        "description": "Enterprise AES-256 encryption with cryptographically secured Meta Business API permissions and SOC2-inspired architecture.",
+        "icon": "shield"
+      },
+      {
+        "title": "Deep ROI Analytics",
+        "description": "End-to-end tracking from Instagram comments to final checkout events, providing a transparent view of mission impact.",
+        "icon": "bar-chart"
+      }
+    ]
+  },
+  {
+    "title": "VOID",
+    "slug": "void",
+    "description": "Hyper-Intelligent Virtual Environment Manager. A sophisticated tool for managing virtual environments and development workflows.",
+    "tags": [
+      "Under Development"
+    ],
+    "repoUrl": "https://github.com/opendev-labs/void",
+    "liveUrl": null,
+    "features": [
+      {
+        "title": "Hyper-Intelligent Venv Management",
+        "description": "Sophisticated tool for managing virtual environments and development workflows with automated isolation protocols.",
+        "icon": "box"
+      },
+      {
+        "title": "Sandbox Isolation",
+        "description": "Ensures clean, isolated development environments that prevent dependency drift and conflicts across complex project stacks.",
+        "icon": "lock"
+      },
+      {
+        "title": "Dependency Orchestration",
+        "description": "Automated management of requirements and system packages, ensuring environment stability with high-fidelity sync logic.",
+        "icon": "layers"
+      },
+      {
+        "title": "CLI-First Intelligence",
+        "description": "A high-performance command-line interface designed for engineers who demand speed, precision, and deterministic execution.",
+        "icon": "terminal"
+      }
+    ]
+  },
+  {
+    "title": "Quantum-NLP",
+    "slug": "quantum-nlp",
+    "description": "Quantum Native Natural Language Processing experiments utilizing PyTorch, Transformers, PennyLane, and Qiskit for hybrid quantum-classical models.",
+    "tags": [
+      "Under Development"
+    ],
+    "repoUrl": "https://github.com/opendev-labs/Quantum-NLP",
+    "liveUrl": null,
+    "features": [
+      {
+        "title": "Hybrid Quantum-Classical Models",
+        "description": "Leverages the power of PennyLane and Transformers to bridge quantum circuits with classical NLP architecture.",
+        "icon": "activity"
+      },
+      {
+        "title": "Quantum Semantic Analysis",
+        "description": "Exploring quantum state representation for high-fidelity semantic understanding and information retrieval beyond classical limits.",
+        "icon": "search"
+      },
+      {
+        "title": "PennyLane Ecosystem",
+        "description": "Deep integration with the PennyLane framework for differentiable quantum programming and gradient-based circuit optimization.",
+        "icon": "share-2"
+      },
+      {
+        "title": "Qiskit Simulation Kernels",
+        "description": "Utilizes Qiskit for circuit verification and realistic noise modeling, ensuring models are ready for real quantum hardware.",
+        "icon": "grid"
+      }
+    ]
+  }
+]

@@ -912,7 +912,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/iamyashramteke/assets/index-FmhSITE6.js"></script>
+  <script type="module" src="/src/pages/my-work/main.jsx"></script>
 </head>
 
 <body>
@@ -999,6 +999,34 @@
       setInterval(enhanceUI, 100); // Increased frequency for snappier removal
       enhanceUI();
     });
+  </script>
+  <script>
+    // Global hook for React to signal readiness
+    window.__APP_READY__ = function () {
+      const preloader = document.getElementById('preloader');
+      const root = document.getElementById('root');
+
+      if (preloader) {
+        preloader.classList.add('hidden');
+      }
+      if (root) {
+        root.classList.add('loaded');
+      }
+    };
+
+    // Kill-switch: absolute max wait to ensure users never get stuck
+    setTimeout(() => {
+      const preloader = document.getElementById('preloader');
+      const root = document.getElementById('root');
+
+      if (preloader && !preloader.classList.contains('hidden')) {
+        console.warn('Kill-switch: forcing preloader off');
+        preloader.classList.add('hidden');
+      }
+      if (root && !root.classList.contains('loaded')) {
+        root.classList.add('loaded');
+      }
+    }, 3000);
   </script>
 </body>
 
