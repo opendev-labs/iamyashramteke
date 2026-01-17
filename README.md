@@ -1,34 +1,82 @@
-# @iamyash.io // opendev-labs
+<p align="center">
+  <img src="https://raw.githubusercontent.com/opendev-labs/iamyashramteke/main/public/logo.svg" alt="@iamyash.io" width="80" height="80" />
+</p>
 
-> **Reality is non-static. We are the architects of its next iteration.**
+<h1 align="center">@iamyash.io</h1>
 
-Welcome to the digital sanctuary and development hub of Yash R. This repository houses the core engine driving [iamyash.io](https://iamyash.io), a high-performance portfolio showcasing institutional-grade tools and quantum-spiritual computational frameworks.
+<p align="center">
+  <strong>Personal Portfolio & Digital Presence</strong><br/>
+  <em>Transcending Code, Elevating Consciousness.</em>
+</p>
 
-## 🌐 Vision
-
-opendev-labs is dedicated to **Reality Creation**. We build tools that bridge the gap between high-level human intention and mechanical physical laws. Our work is focused on:
-- **Consciousness Elevation**: Software as a catalyst for cognitive expansion.
-- **Sovereign Automation**: Multi-agent systems that empower the individual.
-- **Matrix Breaking**: Identifying and bypassing the structural inefficiencies of legacy systems.
-
-## 🛠 Featured Constructs
-
-### [QBET](https://github.com/opendev-labs/QBET)
-**Quantum Bit Entanglement Theory** — A consciousness-driven computational framework. It is a sovereign language designed for the deterministic manifestation of complex reality systems.
-
-### [AgentBash](https://agentbash.vercel.app/)
-**Institutional Automation Engine** — An expert AI development partner that automates entire research and development workflows with multi-agent orchestration.
-
-### [PollyScanner](https://polyscanner.vercel.app/)
-**Probability Intelligence Desk** — A professional-grade prediction market scanner designed for high-density market screening and trend acceleration detection.
-
-## 🏛 The Repository
-
-This repository contains the bundled production assets and the dynamic project orchestration engine.
-- **Dynamic Projects**: Automated README-to-HTML conversion for project case studies.
-- **Premium Aesthetics**: A custom-built UI leveraging glassmorphism, quantum-resonance animations, and high-contrast dark modes.
-- **Conduction Layer**: Integrated logic for real-time project synchronization.
+<p align="center">
+  <a href="https://iamyash.io">
+    <img src="https://img.shields.io/badge/Live-iamyash.io-00FFFF?style=for-the-badge&labelColor=000000" alt="Live Site" />
+  </a>
+  <a href="https://instagram.com/iamyash.io">
+    <img src="https://img.shields.io/badge/Instagram-@iamyash.io-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=000000" alt="Instagram" />
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge&labelColor=000000" alt="MIT License" />
+  </a>
+</p>
 
 ---
-**Designed by opendev-labs**  
-*Manifesting the Future, One Line of Code at a Time.*
+
+## Overview
+
+This is my personal Instagram portfolio website — a sovereign digital space where I showcase my work, philosophy, and digital constructs. Built as a solo developer, this project represents my journey in software architecture, AI development, and consciousness elevation.
+
+The portfolio features a custom project display system built with **NuxtGen** — a high-performance Vue/Nuxt architecture designed for showcasing digital constructs with premium aesthetics and fluid interactions.
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Framework** | Nuxt 3 |
+| **Styling** | TailwindCSS |
+| **Project Display** | NuxtGen (Custom Architecture) |
+| **Content** | Nuxt Content |
+| **Deployment** | GitHub Pages |
+
+## Features
+
+- **Premium Dark/Light Theme** — Seamless theme transitions with View Transitions API
+- **NuxtGen Project Display** — Dynamic case study pages with feature architecture breakdowns
+- **Custom Cursor** — Elite cursor effects and micro-interactions
+- **Live Background** — Quantum-inspired particle system
+- **Responsive Design** — Mobile-first, scales beautifully across all devices
+
+## Local Development
+
+```bash
+# install dependencies
+npm install
+
+# start dev server
+npm run dev
+
+# build for production
+npm run generate
+```
+
+## Structure
+
+```
+├── components/          # Vue components (NuxtGen system)
+├── pages/               # Route pages including case-study/[slug]
+├── assets/css/          # Global styles and design tokens
+├── utils/               # Project data and utilities
+├── layouts/             # NuxtGen layout system
+└── public/              # Static assets
+```
+
+## License
+
+MIT © [opendev-labs](https://github.com/opendev-labs)
+
+---
+
+<p align="center">
+  <sub>Solo-developed with precision and intention.</sub>
+</p>

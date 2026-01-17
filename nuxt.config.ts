@@ -6,6 +6,15 @@ export default defineNuxtConfig({
     // Route rules for static generation
     routeRules: {
         '/': { prerender: true },
+        '/case-study/qbet': { prerender: true },
+        '/case-study/agentbash': { prerender: true },
+        '/case-study/gh-sync-desk': { prerender: true },
+        '/case-study/quantum-api': { prerender: true },
+        '/case-study/quantum-compute': { prerender: true },
+        '/case-study/quantum-ml': { prerender: true },
+        '/case-study/auto-notion': { prerender: true },
+        '/case-study/void': { prerender: true },
+        '/case-study/quantum-nlp': { prerender: true },
     },
 
     css: ['~/assets/css/main.css'],
@@ -13,8 +22,14 @@ export default defineNuxtConfig({
     // Modules
     modules: [
         '@nuxt/content',
-        '@nuxtjs/color-mode'
+        '@nuxtjs/color-mode',
+        '@nuxtjs/tailwindcss'
     ],
+
+    // Experimental features
+    experimental: {
+        appManifest: false
+    },
 
     // Content module configuration
     content: {
@@ -39,10 +54,8 @@ export default defineNuxtConfig({
 
     // App configuration
     app: {
-        // Only set baseURL if deploying to a subfolder like GitHub Pages
-        // baseURL: '/iamyashramteke/', 
         head: {
-            title: 'YASH R // RESEARCH CONSOLE',
+            title: '@iamyash.io',
             htmlAttrs: {
                 lang: 'en'
             },

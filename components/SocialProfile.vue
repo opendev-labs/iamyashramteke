@@ -11,22 +11,6 @@
             I am always open to new frequencies of thought and opportunities for collaboration. If my work resonates, or if you have a project that seeks to challenge convention, I invite you to open a channel.
           </p>
           
-          <div class="flex flex-col gap-4">
-             <a href="https://opendev-labs.github.io" target="_blank" class="group flex items-center justify-center md:justify-start gap-3 p-4 rounded-xl border border-[var(--border)] bg-black/20 hover:bg-[var(--accent)]/5 hover:border-[var(--accent)]/40 transition-all duration-300">
-               <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] group-hover:bg-[var(--accent)] group-hover:text-black transition-all">
-                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9-3-9m-9 9a9 9 0 019-9" />
-                  </svg>
-               </div>
-               <div class="text-left">
-                 <div class="text-xs font-bold text-[var(--text-primary)]">Official Website</div>
-                 <div class="text-[10px] text-[var(--text-secondary)]">opendev-labs.io</div>
-               </div>
-               <svg class="w-4 h-4 ml-auto text-[var(--text-secondary)] group-hover:text-[var(--accent)] transform group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7" />
-               </svg>
-             </a>
-          </div>
         </div>
 
         <!-- Social Links Grid -->
@@ -44,13 +28,29 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7" />
             </svg>
           </a>
+          
+          <!-- Official Website moved below socials -->
+          <a href="https://opendev-labs.github.io" target="_blank" class="group flex items-center gap-4 p-4 rounded-xl border border-[var(--border)] bg-black/40 hover:bg-[var(--accent)]/5 hover:border-[var(--accent)]/40 transition-all duration-300">
+            <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] group-hover:bg-[var(--accent)] group-hover:text-black transition-all duration-300">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9-3-9m-9 9a9 9 0 019-9" />
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <div class="text-xs font-bold text-[var(--text-primary)]">Official Website</div>
+              <div class="text-[10px] text-[var(--text-secondary)]">opendev-labs.io</div>
+            </div>
+            <svg class="w-4 h-4 text-[var(--text-secondary)] group-hover:text-[var(--accent)] transform group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
       
       <!-- Footer Attribution -->
       <div class="mt-20 text-center opacity-30 select-none">
         <p class="text-[10px] uppercase tracking-[0.5em] text-[var(--text-secondary)] font-medium">
-          Designed & Built by Yash R (opendev-labs) &copy; 2026
+          Designed & Built by Yash R (<span class="text-[#F97316] font-bold">opendev-labs</span>) &copy; 2026
         </p>
       </div>
     </div>

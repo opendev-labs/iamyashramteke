@@ -1,56 +1,89 @@
 <template>
   <div 
-    class="custom-cursor fixed pointer-events-none z-[99999] hidden md:block"
-    :style="{ 
-      transform: `translate3d(${pos.x}px, ${pos.y}px, 0)`,
-      opacity: visible ? 1 : 0
-    }"
+    ref="cursorRef" 
+    class="custom-cursor fixed pointer-events-none z-[99999] opacity-0 pointer-hidden md:block"
+    :class="{ 'is-hovering': isHovering }"
+    aria-hidden="true"
   >
-    <svg class="w-8 h-8 -translate-x-1/2 -translate-y-1/2" viewBox="0 0 28 28">
-      <circle 
-        cx="14" 
-        cy="14" 
-        r="4" 
-        fill="var(--cursor-color)" 
-        :style="{ filter: `drop-shadow(0 0 6px var(--cursor-shadow-color))` }"
-      />
-      <circle 
-        cx="14" 
-        cy="14" 
-        r="10" 
-        fill="none" 
-        stroke="var(--cursor-color)" 
-        stroke-width="1"
-        class="opacity-20"
-      />
-    </svg>
+    <div class="cursor-wrapper relative">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="cursor-icon -translate-x-1/2 -translate-y-1/2 transition-transform duration-300">
+        <path 
+          d="M4.26 4.26l15.48 7.74-7.74 1.94-1.94 7.74L4.26 4.26z" 
+          stroke="var(--accent)"
+          stroke-width="1.5"
+          stroke-linejoin="round"
+          class="drop-shadow-[0_0_8px_var(--glow)]"
+        />
+      </svg>
+      <div class="cursor-dot absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-[var(--accent)] rounded-full opacity-0 transition-opacity"></div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const pos = ref({ x: -100, y: -100 });
-const visible = ref(false);
+const cursorRef = ref(null);
+const isHovering = ref(false);
 
-const updatePos = (e) => {
-  pos.value = { x: e.clientX, y: e.clientY };
-  if (!visible.value) visible.value = true;
+const mouse = { x: 0, y: 0 };
+const pos = { x: 0, y: 0 };
+const ratio = 0.2; // Smoothness factor (0.1 to 0.3 is usually best)
+let animationId = null;
+
+const updatePosition = () => {
+  // Linear Interpolation (LERP)
+  pos.x += (mouse.x - pos.x) * ratio;
+  pos.y += (mouse.y - pos.y) * ratio;
+
+  if (cursorRef.value) {
+    cursorRef.value.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0)`;
+  }
+  
+  animationId = requestAnimationFrame(updatePosition);
 };
 
-const handleMouseEnter = () => visible.value = true;
-const handleMouseLeave = () => visible.value = false;
+const handleMouseMove = (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+  
+  if (cursorRef.value && cursorRef.value.style.opacity === '0') {
+    cursorRef.value.style.opacity = '1';
+  }
+
+  // Check if hovering over interactive element
+  const target = e.target;
+  const isInteractive = target.closest('a, button, [role="button"], input, select, textarea');
+  isHovering.value = !!isInteractive;
+};
+
+const handleMouseLeaveWindow = () => {
+  if (cursorRef.value) cursorRef.value.style.opacity = '0';
+};
+
+const handleMouseEnterWindow = () => {
+  if (cursorRef.value) cursorRef.value.style.opacity = '1';
+};
 
 onMounted(() => {
-  window.addEventListener('mousemove', updatePos);
-  document.addEventListener('mouseenter', handleMouseEnter);
-  document.addEventListener('mouseleave', handleMouseLeave);
+  document.addEventListener('mousemove', handleMouseMove);
+  document.documentElement.addEventListener('mouseleave', handleMouseLeaveWindow);
+  document.documentElement.addEventListener('mouseenter', handleMouseEnterWindow);
+  
+  // Start the animation loop
+  animationId = requestAnimationFrame(updatePosition);
+  
+  // Initial visibility after a short delay
+  setTimeout(() => {
+    if (cursorRef.value) cursorRef.value.style.opacity = '1';
+  }, 100);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('mousemove', updatePos);
-  document.removeEventListener('mouseenter', handleMouseEnter);
-  document.removeEventListener('mouseleave', handleMouseLeave);
+  document.removeEventListener('mousemove', handleMouseMove);
+  document.documentElement.removeEventListener('mouseleave', handleMouseLeaveWindow);
+  document.documentElement.removeEventListener('mouseenter', handleMouseEnterWindow);
+  if (animationId) cancelAnimationFrame(animationId);
 });
 </script>
 
@@ -58,6 +91,15 @@ onUnmounted(() => {
 .custom-cursor {
   will-change: transform, opacity;
   transition: opacity 0.3s ease;
+}
+
+.cursor-icon {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), scale 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.custom-cursor.is-hovering .cursor-icon {
+  transform: translate(-50%, -50%) scale(1.5) rotate(15deg);
+  filter: brightness(1.2);
 }
 
 @media (pointer: coarse) {

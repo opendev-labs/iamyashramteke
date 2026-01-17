@@ -66,8 +66,8 @@ const explorations = [
     icon: AtomIcon
   },
   {
-    title: 'OpenDev Labs',
-    description: 'The official hub for my work in AI development at OpenDev Labs. Follow for project showcases, technical insights, and explorations into building intelligent, automated systems with cutting-edge AI.',
+    title: 'opendev-labs',
+    description: 'The official hub for my work in AI development. Follow for project showcases, technical insights, and explorations into building intelligent, automated systems with cutting-edge AI.',
     url: 'https://opendev-labs.github.io',
     icon: LinkIcon
   },

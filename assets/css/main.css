@@ -1,22 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-    --clip-x: 50%;
-    --clip-y: 50%;
-    --clip-radius: 150vw;
+    /* Precision Design Tokens (200M$ Fidelity) */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+
+    /* Fluid Sizing (Mobile First -> Ultra Wide) */
+    --h1-size: clamp(3.5rem, 12vw, 8rem);
+    --h2-size: clamp(1.8rem, 6vw, 3.5rem);
+    --p-size: clamp(0.95rem, 1.1vw, 1.15rem);
+
+    --border-radius: 12px;
+    --border-width: 0.5px;
+    /* Elite Razor Edge */
 }
 
 /* --- Theme Transition Foundation --- */
 ::view-transition-group(root) {
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 ::view-transition-old(root) {
-    animation: 600ms reveal-out both;
+    animation: 800ms reveal-out both;
     z-index: 9999;
 }
 
 ::view-transition-new(root) {
-    animation: 600ms reveal-in both;
+    animation: 800ms reveal-in both;
     mix-blend-mode: normal;
 }
 
@@ -40,25 +52,19 @@
     }
 }
 
-/* Dark Theme (Cyan) */
+/* Dark Theme (Elite Cyan) */
 html[data-theme="dark"] {
-    --background: #050509;
-    --text-primary: #F0F2F5;
-    --text-secondary: #9DA3AE;
+    --background: #020204;
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.6);
     --accent: #00FFFF;
     --accent-rgb: 0, 255, 255;
-    --accent-dark: #00D1D1;
-    --surface: rgba(22, 24, 29, 0.6);
-    --surface-inset: #101018;
-    --border: rgba(var(--accent-rgb), 0.15);
-    --glow: rgba(var(--accent-rgb), 0.2);
-    --shadow-color: rgba(var(--accent-rgb), 0.3);
-    --shadow-color-hover: rgba(var(--accent-rgb), 0.4);
-    --cursor-color: var(--accent);
-    --cursor-shadow-color: rgba(var(--accent-rgb), 0.6);
-    --cursor-dot-color: rgba(var(--accent-rgb), 0.2);
-    --scanline-color: rgba(var(--accent-rgb), 0.05);
-    --grid-color: rgba(var(--accent-rgb), 0.1);
+    --surface: rgba(10, 10, 15, 0.5);
+    /* Hyper-Glass Base */
+    --surface-solid: #0A0A0F;
+    --border: rgba(var(--accent-rgb), 0.1);
+    --glow: rgba(var(--accent-rgb), 0.15);
+    --grid-color: rgba(var(--accent-rgb), 0.04);
 }
 
 /* Light Theme (Cyan) */
@@ -91,6 +97,7 @@ html[data-theme="light"] {
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    cursor: none;
 }
 
 body {
@@ -99,6 +106,7 @@ body {
     color: var(--text-secondary);
     transition: background-color 0.5s ease, color 0.5s ease;
     min-height: 100vh;
+    cursor: none;
 }
 
 html[data-theme="dark"] body {
@@ -193,4 +201,14 @@ html[data-theme="light"] .hero-heading-effect {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent);
+}
+
+/* Ensure interactive elements don't show system cursor */
+a,
+button,
+[role="button"],
+input,
+textarea,
+select {
+    cursor: none !important;
 }

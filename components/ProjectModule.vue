@@ -30,30 +30,30 @@
         </p>
       </div>
       <div class="flex items-end justify-between mt-auto">
-        <div class="flex flex-wrap gap-2">
-          <span 
-            v-for="tag in tags" 
-            :key="tag" 
-            class="text-[10px] font-bold px-3 py-1 rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/10 text-[var(--accent)] uppercase tracking-tighter transition-all duration-300 group-hover:bg-[var(--accent)]/20"
-          >
-            {{ tag }}
+        <div class="flex flex-col">
+          <span v-if="status" class="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+            {{ status }}
           </span>
         </div>
-        <div v-if="slug" class="flex items-center text-sm font-medium text-[var(--accent)] transition-colors duration-300 group-hover:text-[var(--text-primary)]">
-          View Case Study
+        <NuxtLink 
+          v-if="slug" 
+          :to="`/case-study/${slug}`" 
+          class="flex items-center text-sm font-medium text-[var(--accent)] transition-colors duration-300 hover:text-[var(--text-primary)]"
+        >
+          Case Study
           <svg class="w-5 h-5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-defineProps({
+const props = defineProps({
   title: String,
   slug: String,
   description: String,
@@ -62,6 +62,17 @@ defineProps({
   liveUrl: String,
   docsUrl: String,
   version: String
+});
+
+const status = computed(() => {
+  if (!props.tags || props.tags.length === 0) return null;
+  // Look for status-like tags
+  const statusTag = props.tags.find(tag => 
+    tag.toLowerCase().includes('developed') || 
+    tag.toLowerCase().includes('beta') || 
+    tag.toLowerCase().includes('active')
+  );
+  return statusTag || props.tags[0];
 });
 
 const glowStyle = ref({});
