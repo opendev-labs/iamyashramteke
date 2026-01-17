@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="relative h-[calc(100dvh-5rem)] w-full flex items-center justify-center text-left overflow-hidden pb-32 md:pb-32">
+  <section id="home" class="relative h-[calc(100dvh-5rem)] w-full flex items-center justify-center text-left overflow-hidden pb-32 md:pb-0 md:pt-24">
     <!-- Background is handled by LiveBackground component in parent -->
     <div class="relative z-10 w-full container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col md:flex-row items-start md:items-center justify-center md:justify-between gap-4 md:gap-12">
       
