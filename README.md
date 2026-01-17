@@ -47,19 +47,6 @@ The portfolio features a custom project display system built with **NuxtGen** �
 - **Live Background** — Quantum-inspired particle system
 - **Responsive Design** — Mobile-first, scales beautifully across all devices
 
-## Local Development
-
-```bash
-# install dependencies
-npm install
-
-# start dev server
-npm run dev
-
-# build for production
-npm run generate
-```
-
 ## Structure
 
 ```
