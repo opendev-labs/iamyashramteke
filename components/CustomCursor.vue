@@ -28,7 +28,7 @@ const isHovering = ref(false);
 
 const mouse = { x: 0, y: 0 };
 const pos = { x: 0, y: 0 };
-const ratio = 0.2; // Smoothness factor (0.1 to 0.3 is usually best)
+const ratio = 0.65; // Responsiveness factor (higher = faster, 0.5-0.8 is snappy)
 let animationId = null;
 
 const updatePosition = () => {

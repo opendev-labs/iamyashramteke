@@ -31,7 +31,11 @@
       </div>
       <div class="flex items-end justify-between mt-auto">
         <div class="flex flex-col">
-          <span v-if="status" class="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+          <span 
+            v-if="status" 
+            class="text-[10px] font-bold uppercase tracking-wider"
+            :class="isUnderDevelopment ? 'text-[#F97316]' : 'text-[var(--text-secondary)]'"
+          >
             {{ status }}
           </span>
         </div>
@@ -73,6 +77,12 @@ const status = computed(() => {
     tag.toLowerCase().includes('active')
   );
   return statusTag || props.tags[0];
+});
+
+const isUnderDevelopment = computed(() => {
+  if (!status.value) return false;
+  const s = status.value.toLowerCase();
+  return s.includes('under development') || s.includes('underdevelopment') || s.includes('under-development');
 });
 
 const glowStyle = ref({});

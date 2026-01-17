@@ -46,13 +46,6 @@
           </a>
         </div>
       </div>
-      
-      <!-- Footer Attribution -->
-      <div class="mt-20 text-center opacity-30 select-none">
-        <p class="text-[10px] uppercase tracking-[0.5em] text-[var(--text-secondary)] font-medium">
-          Designed & Built by Yash R (<span class="text-[#F97316] font-bold">opendev-labs</span>) &copy; 2026
-        </p>
-      </div>
     </div>
   </section>
 </template>
