@@ -6,7 +6,7 @@
       :class="isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
     >
       <div class="container mx-auto px-4">
-        <p class="text-sm text-[var(--text-secondary)]/60 mono tracking-widest">
+        <p class="text-sm text-[var(--text-secondary)]/60 tracking-widest">
           Designed & Built by Yash R (<span class="text-[#F97316] font-bold">opendev-labs</span>) © {{ currentYear }}
         </p>
         
