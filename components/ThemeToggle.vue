@@ -55,12 +55,12 @@ const toggleTheme = (event) => {
     ];
     document.documentElement.animate(
       {
-        clipPath: isDark.value ? clipPath.reverse() : clipPath,
+        clipPath: isDark.value ? [...clipPath].reverse() : clipPath,
       },
       {
         duration: 400,
-        easing: "cubic-bezier(0.25, 0.8, 0.25, 1)", // Snappy but smooth
-        pseudoElement: isDark.value ? "::view-transition-old(root)" : "::view-transition-new(root)",
+        easing: "cubic-bezier(0.25, 0.8, 0.25, 1)", // Snappy
+        pseudoElement: "::view-transition-new(root)", // ALWAYS animate the new view on top
       }
     );
   });

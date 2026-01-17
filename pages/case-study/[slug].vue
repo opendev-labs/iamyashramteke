@@ -1,15 +1,7 @@
 <template>
   <div class="case-study-page min-h-screen pt-24 pb-16">
     <!-- Back Navigation (Integrated into page) -->
-    <div class="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 mb-12">
-      <NuxtLink to="/#constructs" class="group inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors opacity-0 animate-fade-in">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-1">
-          <line x1="19" y1="12" x2="5" y2="12"></line>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        Back to Portfolio
-      </NuxtLink>
-    </div>
+    <!-- Back Navigation Removed -->
 
     <div v-if="project" class="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
       <div class="max-w-4xl mx-auto">

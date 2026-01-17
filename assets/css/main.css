@@ -37,12 +37,22 @@ html:not([data-transition-type="theme-toggle"]) ::view-transition-new(root) {
 }
 
 /* For theme toggle, we disable the default animation on the non-animating pseudo */
-html[data-transition-type="theme-toggle"] ::view-transition-old(root),
+/* For theme toggle, we disable the default animation on the non-animating pseudo */
+/* But handle stacking manually to avoid ghosting */
+html[data-transition-type="theme-toggle"] ::view-transition-group(root) {
+    z-index: 10000;
+}
+
+html[data-transition-type="theme-toggle"] ::view-transition-old(root) {
+    animation: none;
+    z-index: 1;
+    mix-blend-mode: normal;
+}
+
 html[data-transition-type="theme-toggle"] ::view-transition-new(root) {
     animation: none;
-    mix-blend-mode: normal;
     z-index: 9999;
-    /* The active one is animated by JS, the other needs to just sit there or disappear */
+    mix-blend-mode: normal;
 }
 
 @keyframes reveal-in {
