@@ -54,6 +54,7 @@ export default defineNuxtConfig({
 
     // App configuration
     app: {
+        baseURL: '/iamyashramteke/',
         head: {
             title: '@iamyash.io',
             htmlAttrs: {
