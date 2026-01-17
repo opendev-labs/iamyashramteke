@@ -3,7 +3,7 @@ export const PROJECTS = [
     {
         title: "Transcenders",
         slug: "transcenders",
-        description: "The unified CLI and SDK for the OpenDev quantum ecosystem. Bridges the gap between abstract quantum potential and tangible application, merging Quantum-ML, Quantum-API, and Quantum-Compute. Why Classical when you can Transcend?",
+        description: "The unified CLI and SDK for the opendev-labs quantum ecosystem. Bridges the gap between abstract quantum potential and tangible application, merging Quantum-ML, Quantum-API, and Quantum-Compute. Why Classical when you can Transcend?",
         tags: ["Quantum Unified", "CLI", "SDK", "Flagship"],
         repoUrl: "https://github.com/opendev-labs/Transcenders",
         version: "1.0.0_CORE",

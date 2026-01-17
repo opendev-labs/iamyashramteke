@@ -22,14 +22,27 @@
     animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-::view-transition-old(root) {
+/* 
+   Only apply the CSS keyframe animations if we are NOT doing a theme toggle.
+   When [data-transition-type="theme-toggle"] is present, JS takes over.
+*/
+html:not([data-transition-type="theme-toggle"]) ::view-transition-old(root) {
     animation: 800ms reveal-out both;
     z-index: 9999;
 }
 
-::view-transition-new(root) {
+html:not([data-transition-type="theme-toggle"]) ::view-transition-new(root) {
     animation: 800ms reveal-in both;
     mix-blend-mode: normal;
+}
+
+/* For theme toggle, we disable the default animation on the non-animating pseudo */
+html[data-transition-type="theme-toggle"] ::view-transition-old(root),
+html[data-transition-type="theme-toggle"] ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+    z-index: 9999;
+    /* The active one is animated by JS, the other needs to just sit there or disappear */
 }
 
 @keyframes reveal-in {

@@ -41,6 +41,9 @@ const toggleTheme = (event) => {
     return;
   }
 
+  // Set the transition type on the document element so CSS knows to yield control
+  document.documentElement.setAttribute('data-transition-type', 'theme-toggle');
+
   const transition = document.startViewTransition(() => {
     colorMode.preference = isDark.value ? 'light' : 'dark';
   });
@@ -55,11 +58,15 @@ const toggleTheme = (event) => {
         clipPath: isDark.value ? clipPath.reverse() : clipPath,
       },
       {
-        duration: 500,
-        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+        duration: 400,
+        easing: "cubic-bezier(0.25, 0.8, 0.25, 1)", // Snappy but smooth
         pseudoElement: isDark.value ? "::view-transition-old(root)" : "::view-transition-new(root)",
       }
     );
+  });
+
+  transition.finished.finally(() => {
+    document.documentElement.removeAttribute('data-transition-type');
   });
 };
 </script>
