@@ -1,6 +1,39 @@
 
 export const PROJECTS = [
     {
+        title: "Transcenders",
+        slug: "transcenders",
+        description: "The unified CLI and SDK for the OpenDev quantum ecosystem. Bridges the gap between abstract quantum potential and tangible application, merging Quantum-ML, Quantum-API, and Quantum-Compute. Why Classical when you can Transcend?",
+        tags: ["Quantum Unified", "CLI", "SDK", "Flagship"],
+        repoUrl: "https://github.com/opendev-labs/Transcenders",
+        version: "1.0.0_CORE",
+        status: "PRODUCTION",
+        category: "Ecosystem",
+        timeline: "2026",
+        features: [
+            {
+                icon: "cpu",
+                title: "Unified Nervous System",
+                description: "Seamlessly integrates Compute, ML, and API layers into a single, powerful nervous system for quantum operations."
+            },
+            {
+                icon: "layers",
+                title: "Transformers vs Transcenders",
+                description: "Moving beyond classical linear scaling to exponential state spaces. Leveraging superposition for non-binary problem solving."
+            },
+            {
+                icon: "brain",
+                title: "Hybrid Intelligence",
+                description: "Orchestrates the collaboration between classical deep learning models and quantum circuits for superior inference."
+            },
+            {
+                icon: "link",
+                title: "Ecosystem CLI",
+                description: "One command to rule them all. Manage jobs, train models, and check system health from a unified terminal interface."
+            }
+        ]
+    },
+    {
         title: "QBET",
         slug: "qbet",
         description: "The Sovereign Reality Engine. A state-of-the-art High-Performance Sovereign Language designed for the deterministic manifestation of complex systems. Built for conductors who demand total control over digital law, QBET enforces strict Law-Governed Integrity through Zero-Entropy Conduction.",
