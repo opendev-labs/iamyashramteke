@@ -15,6 +15,7 @@ export default defineNuxtConfig({
         '/case-study/auto-notion': { prerender: true },
         '/case-study/void': { prerender: true },
         '/case-study/quantum-nlp': { prerender: true },
+        '/case-study/ebookstall': { prerender: true },
     },
 
     css: ['~/assets/css/main.css'],

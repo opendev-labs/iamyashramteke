@@ -1,6 +1,40 @@
 
 export const PROJECTS = [
     {
+        title: "EbookStall",
+        slug: "ebookstall",
+        description: "The Sovereign Digital Storefront & Creator Ecosystem. A high-performance self-publishing platform enabling writers to publish ebooks, manage custom link-in-bio landing pages, and accept global payments via Razorpay with instant UPI payouts.",
+        tags: ["Under Development"],
+        repoUrl: "https://github.com/ebookstall/ebookstall",
+        liveUrl: "https://ebookstall.vercel.app/",
+        version: "1.0.0_BETA",
+        status: "UNDER_DEV",
+        category: "Ecosystem",
+        timeline: "2024 - Present",
+        features: [
+            {
+                icon: "cpu",
+                title: "Instant Self-Publishing",
+                description: "Upload ebooks, customize pricing tiers, and generate beautiful, responsive bookshop stalls in under 60 seconds."
+            },
+            {
+                icon: "link",
+                title: "Creator Link-in-Bio",
+                description: "Integrated custom link-in-bio generators for creators to host their digital presence and direct social traffic."
+            },
+            {
+                icon: "brain",
+                title: "Seamless Razorpay Payouts",
+                description: "Integrated PCI-DSS Level 1 gateway supporting multi-tier revenue distribution and automated UPI payouts."
+            },
+            {
+                icon: "layers",
+                title: "Serverless Postgres & Auth",
+                description: "Engineered on Firebase Auth and Neon serverless database core with strict verification webhooks."
+            }
+        ]
+    },
+    {
         title: "Transcenders",
         slug: "transcenders",
         description: "The unified CLI and SDK for the opendev-labs quantum ecosystem. Bridges the gap between abstract quantum potential and tangible application, merging Quantum-ML, Quantum-API, and Quantum-Compute. Why Classical when you can Transcend?",
