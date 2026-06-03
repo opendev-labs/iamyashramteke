@@ -83,10 +83,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
+import Lenis from 'lenis';
 
 const isOpen = ref(false);
 const activeSection = ref('home');
+let lenis = null;
+let rafId = null;
 
 const navLinks = [
   { href: '#home', label: 'Home' },
@@ -99,14 +102,21 @@ const navLinks = [
 const scrollToSection = (e, href) => {
   const target = document.querySelector(href);
   if (target) {
-    target.scrollIntoView({ behavior: 'smooth' });
+    if (lenis) {
+      lenis.scrollTo(target);
+    } else {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
     isOpen.value = false;
   }
 };
 
 const onLogoClick = () => {
-  // Placeholder for AI Core Animation trigger if needed
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (lenis) {
+    lenis.scrollTo(0);
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 };
 
 // Handle body scroll lock
@@ -119,6 +129,20 @@ watch(isOpen, (val) => {
 });
 
 onMounted(() => {
+  // Initialize Lenis smooth scroll
+  lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+  });
+
+  function raf(time) {
+    lenis?.raf(time);
+    rafId = requestAnimationFrame(raf);
+  }
+
+  rafId = requestAnimationFrame(raf);
+
   // Intersection Observer to track active section
   const observerOptions = {
     root: null,
@@ -137,6 +161,15 @@ onMounted(() => {
     const section = document.querySelector(link.href);
     if (section) observer.observe(section);
   });
+});
+
+onUnmounted(() => {
+  if (lenis) {
+    lenis.destroy();
+  }
+  if (rafId) {
+    cancelAnimationFrame(rafId);
+  }
 });
 </script>
 

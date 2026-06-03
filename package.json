@@ -21,6 +21,7 @@
     "dependencies": {
         "@types/three": "^0.182.0",
         "better-sqlite3": "^12.6.0",
+        "lenis": "^1.3.23",
         "three": "^0.182.0"
     }
 }
