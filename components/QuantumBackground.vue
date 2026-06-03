@@ -16,7 +16,7 @@ const particles = [];
 const mouse = { x: -1000, y: -1000, active: false };
 
 const createParticles = () => {
-  const quantity = Math.floor((width * height) / 10000);
+  const quantity = Math.min(80, Math.floor((width * height) / 25000));
   for (let i = 0; i < quantity; i++) {
     particles.push({
       x: Math.random() * width,
