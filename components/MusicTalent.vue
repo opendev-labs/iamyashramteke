@@ -1,5 +1,5 @@
 <template>
-  <section id="music" class="py-24 bg-transparent border-t border-[var(--border)]/30">
+  <section id="music" class="py-24 bg-transparent">
     <div class="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 relative z-10">
       <div class="mb-16 text-center animate-fade-in">
         <p class="text-sm tracking-widest text-[var(--accent)] uppercase font-semibold mb-2">Sonic Constructs</p>
