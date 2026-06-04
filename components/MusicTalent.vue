@@ -50,8 +50,8 @@
               <p class="text-xs font-mono text-[var(--accent)] tracking-wider mb-6">Nuke Frequency Mode</p>
               
               <div class="text-sm text-[var(--text-secondary)] leading-relaxed space-y-4">
-                <p class="font-semibold text-[var(--text-primary)] border-l-2 border-[var(--accent)] pl-3">
-                  "NUKE FM – The frequency they can't jam."
+                <p>
+                  I love exploring AI and I love music, but this is not just music—this is a broadcast to all Indians who are real and fed up of the corrupted government.
                 </p>
                 <div class="flex items-center gap-2.5 pt-4 border-t border-[var(--border)]/20 text-xs text-[var(--text-secondary)]/80">
                   <span class="relative flex h-2 w-2">
