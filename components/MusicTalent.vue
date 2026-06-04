@@ -44,7 +44,7 @@
               <div class="subscribe-container p-4 rounded-xl border border-[var(--border)] bg-black/20 flex flex-col items-center justify-center gap-3">
                 <span class="text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)]">Support the channel</span>
                 <!-- Google Subscribe button container -->
-                <div class="g-ytsubscribe" data-channel="nukfm" data-layout="default" data-theme="dark" data-count="default"></div>
+                <div class="g-ytsubscribe" data-channelid="UC61oymfYXNMJeazMbTHjWwQ" data-layout="default" data-theme="dark" data-count="default"></div>
               </div>
 
               <!-- Open in Native App Button -->
