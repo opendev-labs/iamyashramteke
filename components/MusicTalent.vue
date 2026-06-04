@@ -11,18 +11,32 @@
         <div class="absolute -right-24 -top-24 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl group-hover:bg-[var(--accent)]/10 transition-all duration-700 pointer-events-none"></div>
 
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center relative z-10">
-          <!-- Left: Iframe Player (3/5 cols) -->
+          <!-- Left: Custom Thumbnail Player (3/5 cols) -->
           <div class="lg:col-span-3 w-full">
-            <div class="video-wrapper relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-[var(--border)] bg-black/40 shadow-[0_0_30px_var(--glow)] transition-transform duration-500 hover:scale-[1.01]">
-              <iframe 
-                src="https://www.youtube.com/embed/7Hty5CRDgFo" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen
-                class="absolute top-0 left-0 w-full h-full border-0"
-              ></iframe>
-            </div>
+            <a 
+              href="intent://www.youtube.com/watch?v=7Hty5CRDgFo#Intent;package=com.google.android.youtube;scheme=https;end;"
+              class="video-wrapper block relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-[var(--border)] bg-black/40 shadow-[0_0_30px_var(--glow)] transition-all duration-500 hover:scale-[1.02] group/player"
+              aria-label="Play NukeFM on YouTube"
+            >
+              <!-- Video Thumbnail Image -->
+              <img 
+                src="https://img.youtube.com/vi/7Hty5CRDgFo/maxresdefault.jpg" 
+                alt="NukeFM Video Thumbnail"
+                class="absolute top-0 left-0 w-full h-full object-cover opacity-60 group-hover/player:opacity-85 transition-opacity duration-500"
+              />
+              
+              <!-- Dark Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              
+              <!-- Custom Play Button Overlay -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-[0_0_30px_rgba(239,68,68,0.5)] group-hover/player:shadow-[0_0_40px_rgba(239,68,68,0.8)] group-hover/player:bg-red-500 group-hover/player:scale-110 transition-all duration-300 animate-pulse-slow">
+                  <svg class="w-6 h-6 sm:w-8 sm:h-8 fill-current translate-x-0.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
           </div>
 
           <!-- Right: Description, Subscribe & Native Redirection (2/5 cols) -->
@@ -90,6 +104,21 @@ useHead({
 <style scoped>
 .video-wrapper iframe {
   border: none;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: .8;
+    transform: scale(0.96);
+  }
 }
 
 /* Ensure font harmony with the main website typography */
