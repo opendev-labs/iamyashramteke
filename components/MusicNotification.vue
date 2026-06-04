@@ -33,12 +33,15 @@
             
             <!-- Actions -->
             <div class="flex items-center gap-3 pt-1">
-              <button 
-                @click="scrollToMusic" 
-                class="text-xs font-bold text-black bg-[var(--accent)] hover:bg-white px-3 py-1.5 rounded-lg transition-colors duration-300 shadow-[0_0_10px_var(--glow)]"
+              <a 
+                href="https://www.youtube.com/watch?v=7Hty5CRDgFo"
+                target="_blank"
+                rel="noopener noreferrer"
+                @click="dismiss"
+                class="inline-block text-xs font-bold text-black bg-[var(--accent)] hover:bg-white px-3 py-1.5 rounded-lg transition-colors duration-300 shadow-[0_0_10px_var(--glow)]"
               >
                 Listen Now
-              </button>
+              </a>
               <button 
                 @click="dismiss" 
                 class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-300"
@@ -84,14 +87,6 @@ const dismiss = () => {
   isVisible.value = false
   sessionStorage.setItem('nukefm-notification-dismissed', 'true')
 }
-
-const scrollToMusic = () => {
-  dismiss()
-  const musicSection = document.getElementById('music')
-  if (musicSection) {
-    musicSection.scrollIntoView({ behavior: 'smooth' })
-  }
-}
 </script>
 
 <style scoped>
@@ -111,7 +106,7 @@ h4 {
   font-family: 'Space Grotesk', system-ui, sans-serif !important;
 }
 
-p, button {
+p, button, a {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
