@@ -37,7 +37,6 @@ html:not([data-transition-type="theme-toggle"]) ::view-transition-new(root) {
 }
 
 /* For theme toggle, we disable the default animation on the non-animating pseudo */
-/* For theme toggle, we disable the default animation on the non-animating pseudo */
 /* But handle stacking manually to avoid ghosting */
 html[data-transition-type="theme-toggle"] ::view-transition-group(root) {
     z-index: 10000;
@@ -53,6 +52,14 @@ html[data-transition-type="theme-toggle"] ::view-transition-new(root) {
     animation: none;
     z-index: 9999;
     mix-blend-mode: normal;
+}
+
+/* Disable all standard transitions during the theme toggle view transition to prevent stutters and ensure immediate DOM state capture */
+html[data-transition-type="theme-toggle"] *,
+html[data-transition-type="theme-toggle"] *::before,
+html[data-transition-type="theme-toggle"] *::after {
+    transition: none !important;
+    animation: none !important;
 }
 
 @keyframes reveal-in {
