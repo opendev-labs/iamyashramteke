@@ -14,10 +14,10 @@
           <!-- Top: Custom Thumbnail Player (Full Card Width) -->
           <div class="w-full">
             <a 
-              href="https://www.youtube.com/watch?v=7Hty5CRDgFo"
+              :href="videoUrl"
               target="_blank"
               rel="noopener noreferrer"
-              @click.prevent="openYouTubeDirectly('7Hty5CRDgFo')"
+              @click="handleClick"
               class="video-wrapper block relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-[var(--border)] bg-black/40 shadow-[0_0_30px_var(--glow)] transition-all duration-500 hover:scale-[1.01] group/player"
               aria-label="Play NukeFM on YouTube"
             >
@@ -71,6 +71,21 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const videoUrl = ref('https://www.youtube.com/watch?v=7Hty5CRDgFo')
+
+onMounted(() => {
+  videoUrl.value = getYouTubeDeepLink('7Hty5CRDgFo')
+})
+
+const handleClick = () => {
+  handleYouTubeDeepLinkClick('7Hty5CRDgFo')
+}
+</script>
+
 
 
 <style scoped>

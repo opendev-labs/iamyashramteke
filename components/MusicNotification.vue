@@ -34,10 +34,10 @@
             <!-- Actions -->
             <div class="flex items-center gap-3 pt-1">
               <a 
-                href="https://www.youtube.com/watch?v=7Hty5CRDgFo"
+                :href="videoUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                @click.prevent="() => { dismiss(); openYouTubeDirectly('7Hty5CRDgFo'); }"
+                @click="handleClick"
                 class="inline-block text-xs font-bold text-black bg-[var(--accent)] hover:bg-white px-3 py-1.5 rounded-lg transition-colors duration-300 shadow-[0_0_10px_var(--glow)]"
               >
                 Listen Now
@@ -71,6 +71,7 @@
 import { ref, onMounted } from 'vue'
 
 const isVisible = ref(false)
+const videoUrl = ref('https://www.youtube.com/watch?v=7Hty5CRDgFo')
 
 onMounted(() => {
   // Check if dismissed before in the current session
@@ -81,11 +82,18 @@ onMounted(() => {
       isVisible.value = true
     }, 2000)
   }
+
+  videoUrl.value = getYouTubeDeepLink('7Hty5CRDgFo')
 })
 
 const dismiss = () => {
   isVisible.value = false
   sessionStorage.setItem('nukefm-notification-dismissed', 'true')
+}
+
+const handleClick = () => {
+  dismiss()
+  handleYouTubeDeepLinkClick('7Hty5CRDgFo')
 }
 </script>
 
