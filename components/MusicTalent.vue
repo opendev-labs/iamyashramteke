@@ -17,6 +17,7 @@
               href="https://www.youtube.com/watch?v=7Hty5CRDgFo"
               target="_blank"
               rel="noopener noreferrer"
+              @click.prevent="openYouTubeDirectly('7Hty5CRDgFo')"
               class="video-wrapper block relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-[var(--border)] bg-black/40 shadow-[0_0_30px_var(--glow)] transition-all duration-500 hover:scale-[1.01] group/player"
               aria-label="Play NukeFM on YouTube"
             >

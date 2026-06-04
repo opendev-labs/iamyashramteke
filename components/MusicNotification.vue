@@ -37,7 +37,7 @@
                 href="https://www.youtube.com/watch?v=7Hty5CRDgFo"
                 target="_blank"
                 rel="noopener noreferrer"
-                @click="dismiss"
+                @click.prevent="() => { dismiss(); openYouTubeDirectly('7Hty5CRDgFo'); }"
                 class="inline-block text-xs font-bold text-black bg-[var(--accent)] hover:bg-white px-3 py-1.5 rounded-lg transition-colors duration-300 shadow-[0_0_10px_var(--glow)]"
               >
                 Listen Now
