@@ -46,8 +46,8 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span>
                 @nukfm
               </span>
-              <h3 class="text-3xl font-bold text-[var(--text-primary)]">NukeFM</h3>
-              <p class="text-xs font-mono text-[var(--accent)] tracking-wider">Nuke Frequency Mode</p>
+              <h3 class="text-3xl font-bold text-[var(--text-primary)] mb-1">NukeFM</h3>
+              <p class="text-xs tracking-widest text-[var(--accent)] uppercase font-semibold">Nuke Frequency Moment</p>
             </div>
             
             <div class="flex-1 md:max-w-xl space-y-4">
