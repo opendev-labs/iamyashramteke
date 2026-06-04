@@ -91,4 +91,17 @@ useHead({
 .video-wrapper iframe {
   border: none;
 }
+
+/* Ensure font harmony with the main website typography */
+h2, h3, .title-font {
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+}
+
+p, span, div:not(.g-ytsubscribe), a {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace !important;
+}
 </style>
