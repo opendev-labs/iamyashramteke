@@ -4,6 +4,7 @@
     
     <main class="relative z-10">
       <NextGenHero />
+      <MusicTalent />
       <PhilosophyProcess />
       <ResearchGrid />
       <FurtherExplorations />

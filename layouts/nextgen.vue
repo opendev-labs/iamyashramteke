@@ -37,6 +37,12 @@
             </NuxtLink>
           </nav>
           
+          <a href="#music" @click.prevent="scrollToSection($event, '#music')" class="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--border)] bg-black/40 text-[var(--text-secondary)] hover:text-red-500 hover:border-red-500/40 hover:bg-red-500/5 transition-all duration-300" aria-label="Jump to Music Section">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+
           <ThemeToggle />
         </div>
 
@@ -62,7 +68,12 @@
           {{ link.label }}
         </NuxtLink>
       </nav>
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4">
+        <a href="#music" @click.prevent="scrollToSection($event, '#music')" class="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--border)] bg-black/40 text-[var(--text-secondary)] hover:text-red-500 hover:border-red-500/40 hover:bg-red-500/5 transition-all duration-300" aria-label="Jump to Music Section">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
         <ThemeToggle />
       </div>
     </div>
