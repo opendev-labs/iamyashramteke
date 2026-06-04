@@ -49,10 +49,17 @@
               <h3 class="text-3xl font-bold text-[var(--text-primary)] mb-1">NukeFM</h3>
               <p class="text-xs font-mono text-[var(--accent)] tracking-wider mb-6">Nuke Frequency Mode</p>
               
-              <div class="text-sm text-[var(--text-secondary)] leading-relaxed">
-                <p class="font-semibold text-[var(--text-primary)] border-l-2 border-[var(--accent)] pl-3 italic">
+              <div class="text-sm text-[var(--text-secondary)] leading-relaxed space-y-4">
+                <p class="font-semibold text-[var(--text-primary)] border-l-2 border-[var(--accent)] pl-3">
                   "NUKE FM – The frequency they can't jam."
                 </p>
+                <div class="flex items-center gap-2.5 pt-4 border-t border-[var(--border)]/20 text-xs text-[var(--text-secondary)]/80">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+                  </span>
+                  <span>Click cover to stream track on YouTube</span>
+                </div>
               </div>
             </div>
           </div>
