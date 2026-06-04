@@ -1,6 +1,7 @@
 <template>
   <div class="app-root relative">
     <QuantumBackground />
+    <MusicNotification />
     
     <main class="relative z-10">
       <NextGenHero />
