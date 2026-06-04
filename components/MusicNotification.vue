@@ -1,16 +1,15 @@
 <template>
   <Transition name="fade-slide">
-    <div v-if="isVisible" class="fixed inset-0 z-50 pointer-events-none flex items-center justify-center md:items-end md:justify-start">
-      <!-- Dark Backdrop for Mobile only -->
+    <div v-if="isVisible" class="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <!-- Dark Backdrop for both mobile and desktop -->
       <div 
-        class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden pointer-events-auto"
+        class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 pointer-events-auto"
         @click="dismiss"
       ></div>
 
-      <!-- Toast Modal / Floating Badge -->
+      <!-- Toast Modal / Centered Badge -->
       <div 
-        class="relative max-w-sm w-[calc(100vw-3rem)] glass-toast rounded-xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-[var(--border)] overflow-hidden pointer-events-auto
-               md:fixed md:bottom-6 md:left-6 md:w-full md:max-w-sm"
+        class="relative max-w-sm w-full glass-toast rounded-xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-[var(--border)] overflow-hidden pointer-events-auto z-10"
       >
         <!-- Accent Glow Background -->
         <div class="absolute -right-12 -bottom-12 w-24 h-24 bg-[var(--accent)]/10 rounded-full blur-2xl pointer-events-none"></div>
