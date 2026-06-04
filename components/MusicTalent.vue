@@ -10,23 +10,23 @@
         <!-- Accent Glow background -->
         <div class="absolute -right-24 -top-24 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl group-hover:bg-[var(--accent)]/10 transition-all duration-700 pointer-events-none"></div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center relative z-10">
-          <!-- Left: Custom Thumbnail Player (3/5 cols) -->
-          <div class="lg:col-span-3 w-full">
+        <div class="flex flex-col gap-8 relative z-10">
+          <!-- Top: Custom Thumbnail Player (Full Card Width) -->
+          <div class="w-full">
             <a 
               href="intent://www.youtube.com/watch?v=7Hty5CRDgFo#Intent;package=com.google.android.youtube;scheme=https;end;"
-              class="video-wrapper block relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-[var(--border)] bg-black/40 shadow-[0_0_30px_var(--glow)] transition-all duration-500 hover:scale-[1.02] group/player"
+              class="video-wrapper block relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-[var(--border)] bg-black/40 shadow-[0_0_30px_var(--glow)] transition-all duration-500 hover:scale-[1.01] group/player"
               aria-label="Play NukeFM on YouTube"
             >
               <!-- Video Thumbnail Image -->
               <img 
                 src="https://img.youtube.com/vi/7Hty5CRDgFo/maxresdefault.jpg" 
                 alt="NukeFM Video Thumbnail"
-                class="absolute top-0 left-0 w-full h-full object-cover opacity-60 group-hover/player:opacity-85 transition-opacity duration-500"
+                class="absolute top-0 left-0 w-full h-full object-cover opacity-70 group-hover/player:opacity-85 transition-opacity duration-500"
               />
               
               <!-- Dark Overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
               
               <!-- Custom Play Button Overlay -->
               <div class="absolute inset-0 flex items-center justify-center">
@@ -39,27 +39,27 @@
             </a>
           </div>
 
-          <!-- Right: Description (2/5 cols) -->
-          <div class="lg:col-span-2 flex flex-col justify-center h-full space-y-6">
-            <div>
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 mb-4 animate-pulse">
+          <!-- Bottom: Description & Metadata -->
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 pt-2">
+            <div class="space-y-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 animate-pulse">
                 <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span>
                 @nukfm
               </span>
-              <h3 class="text-3xl font-bold text-[var(--text-primary)] mb-1">NukeFM</h3>
-              <p class="text-xs font-mono text-[var(--accent)] tracking-wider mb-6">Nuke Frequency Mode</p>
-              
-              <div class="text-sm text-[var(--text-secondary)] leading-relaxed space-y-4">
-                <p>
-                  I love exploring AI and I love music, but this is not just music—this is a broadcast to all Indians who are real and fed up of the corrupted government.
-                </p>
-                <div class="flex items-center gap-2.5 pt-4 border-t border-[var(--border)]/20 text-xs text-[var(--text-secondary)]/80">
-                  <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-                  </span>
-                  <span>Click cover to stream track on YouTube</span>
-                </div>
+              <h3 class="text-3xl font-bold text-[var(--text-primary)]">NukeFM</h3>
+              <p class="text-xs font-mono text-[var(--accent)] tracking-wider">Nuke Frequency Mode</p>
+            </div>
+            
+            <div class="flex-1 md:max-w-xl space-y-4">
+              <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                Synthesizing the frontiers of AI with the raw resonance of sound. This is not merely music—it is a tactical broadcast for the sovereign minds of India standing resilient against systemic corruption.
+              </p>
+              <div class="flex items-center gap-2.5 pt-4 border-t border-[var(--border)]/20 text-xs text-[var(--text-secondary)]/85">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+                </span>
+                <span>Click cover to stream track on YouTube</span>
               </div>
             </div>
           </div>
