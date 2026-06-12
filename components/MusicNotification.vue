@@ -26,15 +26,15 @@
           <!-- Content -->
           <div class="flex-1 space-y-2">
             <p class="text-xs font-mono uppercase tracking-widest text-[var(--accent)]">New Release</p>
-            <h4 class="text-sm font-bold text-[var(--text-primary)]">Stream my first AI Punjabi Rap</h4>
+            <h4 class="text-sm font-bold text-[var(--text-primary)]">Stream my new PSY Playlist</h4>
             <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
-              Experience NukeFM's frequency of resistance directly on YouTube.
+              Featuring 2 new psytrance tracks: "Quantum Natural" and "Bio Magnetic".
             </p>
             
             <!-- Actions -->
             <div class="flex items-center gap-3 pt-1">
               <a 
-                :href="videoUrl"
+                :href="playlistUrl"
                 target="_blank"
                 rel="noopener noreferrer"
                 @click="handleClick"
@@ -71,7 +71,7 @@
 import { ref, onMounted } from 'vue'
 
 const isVisible = ref(false)
-const videoUrl = ref('https://www.youtube.com/watch?v=7Hty5CRDgFo')
+const playlistUrl = ref('https://www.youtube.com/playlist?list=PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
 
 onMounted(() => {
   // Check if dismissed before in the current session
@@ -83,7 +83,7 @@ onMounted(() => {
     }, 2000)
   }
 
-  videoUrl.value = getYouTubeDeepLink('7Hty5CRDgFo')
+  playlistUrl.value = getYouTubePlaylistDeepLink('PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
 })
 
 const dismiss = () => {
@@ -93,7 +93,7 @@ const dismiss = () => {
 
 const handleClick = () => {
   dismiss()
-  handleYouTubeDeepLinkClick('7Hty5CRDgFo')
+  handleYouTubePlaylistDeepLinkClick('PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
 }
 </script>
 

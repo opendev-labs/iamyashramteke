@@ -1,30 +1,66 @@
 <template>
   <section id="music" class="py-24 bg-transparent">
     <div class="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 relative z-10">
+      
+      <!-- Section Title -->
       <div class="mb-16 text-center animate-fade-in">
         <p class="text-sm tracking-widest text-[var(--accent)] uppercase font-semibold mb-2">Sonic Constructs</p>
         <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--text-primary)]">Creative Frequency.</h2>
       </div>
 
-      <div class="max-w-4xl mx-auto glass-panel rounded-2xl p-6 sm:p-8 relative overflow-hidden group">
-        <!-- Accent Glow background -->
-        <div class="absolute -right-24 -top-24 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl group-hover:bg-[var(--accent)]/10 transition-all duration-700 pointer-events-none"></div>
+      <!-- Playlist Button (Directly centered, not inside a card) -->
+      <div class="max-w-4xl mx-auto flex justify-center mb-12">
+        <a 
+          href="https://www.youtube.com/playlist?list=PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-6 py-3 text-xs sm:text-sm font-mono uppercase tracking-wider rounded-xl border border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)] hover:text-black transition-all duration-300 flex items-center gap-2 font-bold shadow-[0_0_15px_var(--glow)]"
+        >
+          <span>PSY Playlist</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
 
-        <div class="flex flex-col gap-8 relative z-10">
-          <!-- Top: Custom Thumbnail Player (Full Card Width) -->
-          <div class="w-full">
+      <!-- Two Videos Stacked (Directly on the page) -->
+      <div class="max-w-4xl mx-auto space-y-12 relative">
+        <div 
+          v-for="track in tracks" 
+          :key="track.id"
+          class="flex flex-col gap-6 p-6 sm:p-8 rounded-2xl border border-[var(--border)] bg-black/40 backdrop-blur-md relative group/track overflow-hidden glass-panel"
+        >
+          <!-- Accent Glow background per card -->
+          <div class="absolute -right-24 -top-24 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl group-hover/track:bg-[var(--accent)]/10 transition-all duration-700 pointer-events-none"></div>
+
+          <!-- Video Title & Tag -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 relative z-10">
+            <div class="space-y-1">
+              <h3 class="text-xl sm:text-2xl font-bold text-[var(--text-primary)] leading-tight">{{ track.title }}</h3>
+              <p class="text-[10px] sm:text-xs text-[var(--accent)] tracking-widest uppercase font-mono">PSYTRANCE RELEASE</p>
+            </div>
+            <div class="flex">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 animate-pulse">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span>
+                @nukfm
+              </span>
+            </div>
+          </div>
+
+          <!-- Custom Thumbnail Player -->
+          <div class="w-full relative z-10">
             <a 
-              :href="videoUrl"
+              :href="getLink(track.id)"
               target="_blank"
               rel="noopener noreferrer"
-              @click="handleClick"
-              class="video-wrapper block relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-[var(--border)] bg-black/40 shadow-[0_0_30px_var(--glow)] transition-all duration-500 hover:scale-[1.01] group/player"
-              aria-label="Play NukeFM on YouTube"
+              @click="handleClick(track.id)"
+              class="video-wrapper block relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-[var(--border)]/40 bg-black/40 shadow-[0_0_20px_var(--glow)] transition-all duration-500 hover:scale-[1.01] group/player"
+              :aria-label="`Play ${track.title} on YouTube`"
             >
               <!-- Video Thumbnail Image -->
               <img 
-                src="https://img.youtube.com/vi/7Hty5CRDgFo/maxresdefault.jpg" 
-                alt="NukeFM Video Thumbnail"
+                :src="`https://img.youtube.com/vi/${track.id}/maxresdefault.jpg`" 
+                :alt="`${track.title} Video Thumbnail`"
                 class="absolute top-0 left-0 w-full h-full object-cover opacity-70 group-hover/player:opacity-85 transition-opacity duration-500"
               />
               
@@ -42,51 +78,34 @@
             </a>
           </div>
 
-          <!-- Bottom: Description & Metadata -->
-          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 pt-2">
-            <div class="space-y-2">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 animate-pulse">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span>
-                @nukfm
-              </span>
-              <h3 class="text-3xl font-bold text-[var(--text-primary)] mb-1">NukeFM</h3>
-              <p class="text-xs tracking-widest text-[var(--accent)] uppercase font-semibold">Nuke Frequency Moment</p>
-            </div>
-            
-            <div class="flex-1 md:max-w-xl space-y-4">
-              <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
-                Synthesizing the frontiers of AI with the raw resonance of sound. This is not merely music—it is a tactical broadcast for the sovereign minds of India standing resilient against systemic corruption.
-              </p>
-              <div class="flex items-center gap-2.5 pt-4 border-t border-[var(--border)]/20 text-xs text-[var(--text-secondary)]/85">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-                </span>
-                <span>Click cover to stream track on YouTube</span>
-              </div>
-            </div>
-          </div>
+          <!-- Track Description -->
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed relative z-10">
+            {{ track.description }}
+          </p>
         </div>
       </div>
+
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+const tracks = [
+  {
+    id: 'PeqQ3pPdqdg',
+    title: 'Quantum Natural',
+    description: 'Synthesizing the frontiers of AI with the raw resonance of sound. Quantum Natural is a high-energy sonic journey blending cosmic soundscapes with complex psytrance frequencies.'
+  },
+  {
+    id: 'qUBy_nPTIgk',
+    title: 'Bio Magnetic',
+    description: 'A driving, hypnotic journey of deep basslines and bio-electromagnetic rhythms. Bio Magnetic represents the visceral convergence of computation and biological resonance.'
+  }
+]
 
-const videoUrl = ref('https://www.youtube.com/watch?v=7Hty5CRDgFo')
-
-onMounted(() => {
-  videoUrl.value = getYouTubeDeepLink('7Hty5CRDgFo')
-})
-
-const handleClick = () => {
-  handleYouTubeDeepLinkClick('7Hty5CRDgFo')
-}
+const getLink = (id) => getYouTubeDeepLink(id)
+const handleClick = (id) => handleYouTubeDeepLinkClick(id)
 </script>
-
-
 
 <style scoped>
 .video-wrapper iframe {
