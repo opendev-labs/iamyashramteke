@@ -51,7 +51,7 @@
           <!-- Custom Thumbnail Player -->
           <div class="w-full relative z-10">
             <a 
-              :href="getLink(track.id)"
+              :href="track.link || `https://www.youtube.com/watch?v=${track.id}`"
               target="_blank"
               rel="noopener noreferrer"
               @click="handleClick(track.id)"
@@ -94,44 +94,48 @@
 import { ref, onMounted } from 'vue'
 
 const playlistUrl = ref('https://www.youtube.com/playlist?list=PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
-const trackLinks = ref({})
 
-const tracks = [
+const tracks = ref([
   {
     id: 'PeqQ3pPdqdg',
     title: 'Quantum Natural',
-    description: 'Synthesizing the frontiers of AI with the raw resonance of sound. Quantum Natural is a high-energy sonic journey blending cosmic soundscapes with complex psytrance frequencies.'
+    description: 'Synthesizing the frontiers of AI with the raw resonance of sound. Quantum Natural is a high-energy sonic journey blending cosmic soundscapes with complex psytrance frequencies.',
+    link: ''
   },
   {
     id: 'qUBy_nPTIgk',
     title: 'Bio Magnetic',
-    description: 'A driving, hypnotic journey of deep basslines and bio-electromagnetic rhythms. Bio Magnetic represents the visceral convergence of computation and biological resonance.'
+    description: 'A driving, hypnotic journey of deep basslines and bio-electromagnetic rhythms. Bio Magnetic represents the visceral convergence of computation and biological resonance.',
+    link: ''
   },
   {
     id: '9o8UFIEOww0',
     title: 'Neuclear Warning',
-    description: 'An intense, high-energy psytrance excursion featuring driving basslines, synthetic alerts, and industrial textures to sharpen focus and raise energy levels.'
+    description: 'An intense, high-energy psytrance excursion featuring driving basslines, synthetic alerts, and industrial textures to sharpen focus and raise energy levels.',
+    link: ''
   },
   {
     id: '74tM179QBws',
     title: 'Pineal Activation',
-    description: 'A deep, hypnotic sonic construct engineered to align focus and stimulate consciousness. Slow-building atmospheres coupled with sharp, resonant psytrance rhythms.'
+    description: 'A deep, hypnotic sonic construct engineered to align focus and stimulate consciousness. Slow-building atmospheres coupled with sharp, resonant psytrance rhythms.',
+    link: ''
   },
   {
     id: 'cnP3yijGrQU',
     title: 'Hyperdimentional',
-    description: 'A cosmic, fast-paced voyage navigating through multi-dimensional sounds. Blending intricate synthesizer layers with deep, sub-atomic frequencies to expand perception.'
+    description: 'A cosmic, fast-paced voyage navigating through multi-dimensional sounds. Blending intricate synthesizer layers with deep, sub-atomic frequencies to expand perception.',
+    link: ''
   }
-]
+])
 
 onMounted(() => {
   playlistUrl.value = getYouTubePlaylistDeepLink('PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
-  tracks.forEach(track => {
-    trackLinks.value[track.id] = getYouTubeDeepLink(track.id)
-  })
+  tracks.value = tracks.value.map(track => ({
+    ...track,
+    link: getYouTubeDeepLink(track.id)
+  }))
 })
 
-const getLink = (id) => trackLinks.value[id] || `https://www.youtube.com/watch?v=${id}`
 const handleClick = (id) => handleYouTubeDeepLinkClick(id)
 const handlePlaylistClick = () => handleYouTubePlaylistDeepLinkClick('PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
 </script>
