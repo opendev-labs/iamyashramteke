@@ -6,16 +6,17 @@
     aria-hidden="true"
   >
     <div class="cursor-wrapper relative">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="cursor-icon -translate-x-1/2 -translate-y-1/2 transition-transform duration-300">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="cursor-icon -translate-x-1/2 -translate-y-1/2">
         <path 
           d="M4.26 4.26l15.48 7.74-7.74 1.94-1.94 7.74L4.26 4.26z" 
           stroke="var(--accent)"
-          stroke-width="1.5"
+          stroke-width="2"
           stroke-linejoin="round"
-          class="drop-shadow-[0_0_8px_var(--glow)]"
+          fill="rgba(0, 255, 255, 0.05)"
+          class="cursor-path"
         />
       </svg>
-      <div class="cursor-dot absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-[var(--accent)] rounded-full opacity-0 transition-opacity"></div>
+      <div class="cursor-dot absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[var(--accent)] rounded-full opacity-0"></div>
     </div>
   </div>
 </template>
@@ -28,11 +29,11 @@ const isHovering = ref(false);
 
 const mouse = { x: 0, y: 0 };
 const pos = { x: 0, y: 0 };
-const ratio = 0.65; // Responsiveness factor (higher = faster, 0.5-0.8 is snappy)
+const ratio = 0.95; // Ultra-high responsiveness (zero-lag tracking, buttery smooth)
 let animationId = null;
 
 const updatePosition = () => {
-  // Linear Interpolation (LERP)
+  // Snappy LERP to filter high-frequency mouse jitter while maintaining real-time alignment
   pos.x += (mouse.x - pos.x) * ratio;
   pos.y += (mouse.y - pos.y) * ratio;
 
@@ -51,9 +52,11 @@ const handleMouseMove = (e) => {
     cursorRef.value.style.opacity = '1';
   }
 
-  // Check if hovering over interactive element
+  // Optimize interactive elements query check
   const target = e.target;
-  const isInteractive = target.closest('a, button, [role="button"], input, select, textarea');
+  const isInteractive = target && (
+    target.closest('a, button, [role="button"], input, select, textarea, .video-wrapper')
+  );
   isHovering.value = !!isInteractive;
 };
 
@@ -66,17 +69,15 @@ const handleMouseEnterWindow = () => {
 };
 
 onMounted(() => {
-  document.addEventListener('mousemove', handleMouseMove);
+  document.addEventListener('mousemove', handleMouseMove, { passive: true });
   document.documentElement.addEventListener('mouseleave', handleMouseLeaveWindow);
   document.documentElement.addEventListener('mouseenter', handleMouseEnterWindow);
   
-  // Start the animation loop
   animationId = requestAnimationFrame(updatePosition);
   
-  // Initial visibility after a short delay
   setTimeout(() => {
     if (cursorRef.value) cursorRef.value.style.opacity = '1';
-  }, 100);
+  }, 50);
 });
 
 onUnmounted(() => {
@@ -90,16 +91,27 @@ onUnmounted(() => {
 <style scoped>
 .custom-cursor {
   will-change: transform, opacity;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.15s ease-out;
 }
 
 .cursor-icon {
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), scale 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  /* Snappy cubic-bezier transition for scale to prevent sluggish scale feel */
+  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.cursor-path {
+  transition: stroke 0.15s ease, fill 0.15s ease;
 }
 
 .custom-cursor.is-hovering .cursor-icon {
-  transform: translate(-50%, -50%) scale(1.5) rotate(15deg);
-  filter: brightness(1.2);
+  /* Reduced scale and rotation angle for instant responsiveness, and change color */
+  transform: translate(-50%, -50%) scale(1.15) rotate(10deg);
+}
+
+.custom-cursor.is-hovering .cursor-path {
+  stroke: #ffffff;
+  fill: rgba(255, 255, 255, 0.1);
 }
 
 @media (pointer: coarse) {
