@@ -100,6 +100,21 @@ const tracks = [
     id: 'qUBy_nPTIgk',
     title: 'Bio Magnetic',
     description: 'A driving, hypnotic journey of deep basslines and bio-electromagnetic rhythms. Bio Magnetic represents the visceral convergence of computation and biological resonance.'
+  },
+  {
+    id: '9o8UFIEOww0',
+    title: 'Neuclear Warning',
+    description: 'An intense, high-energy psytrance excursion featuring driving basslines, synthetic alerts, and industrial textures to sharpen focus and raise energy levels.'
+  },
+  {
+    id: '74tM179QBws',
+    title: 'Pineal Activation',
+    description: 'A deep, hypnotic sonic construct engineered to align focus and stimulate consciousness. Slow-building atmospheres coupled with sharp, resonant psytrance rhythms.'
+  },
+  {
+    id: 'cnP3yijGrQU',
+    title: 'Hyperdimentional',
+    description: 'A cosmic, fast-paced voyage navigating through multi-dimensional sounds. Blending intricate synthesizer layers with deep, sub-atomic frequencies to expand perception.'
   }
 ]
 

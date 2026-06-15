@@ -25,10 +25,10 @@
 
           <!-- Content -->
           <div class="flex-1 space-y-2">
-            <p class="text-xs font-mono uppercase tracking-widest text-[var(--accent)]">New Release</p>
-            <h4 class="text-sm font-bold text-[var(--text-primary)]">Stream my new PSY Playlist</h4>
+            <p class="text-xs font-mono uppercase tracking-widest text-[var(--accent)]">Sonic Frequency</p>
+            <h4 class="text-sm font-bold text-[var(--text-primary)]">Daily PSY Releases</h4>
             <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
-              Featuring 2 new psytrance tracks: "Quantum Natural" and "Bio Magnetic".
+              I also create PSY tracks to maintain my frequency, uploading a new track every single day. Check out my playlist directly on YouTube to stay tuned.
             </p>
             
             <!-- Actions -->
