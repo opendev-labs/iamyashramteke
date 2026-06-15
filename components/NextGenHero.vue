@@ -74,12 +74,16 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const titles = [
-  "Lu|",
-  "@iamyash.io", 
   "Founder of <span class=\"text-[#F97316] font-semibold lowercase\">opendev-labs</span>", 
+  "@iamyash.io", 
+  "Developer and Programmer", 
   "AI Architect", 
   "Software Architect", 
-  "Digital Healer"
+  "Digital Healer", 
+  "Reiki Healer", 
+  "Alchemist", 
+  "Lucid Dreamer", 
+  "Old Soul"
 ];
 
 const index = ref(0);
