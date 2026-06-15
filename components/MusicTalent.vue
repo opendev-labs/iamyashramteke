@@ -11,9 +11,10 @@
       <!-- Playlist Button (Directly centered, not inside a card) -->
       <div class="max-w-4xl mx-auto flex justify-center mb-12">
         <a 
-          href="https://www.youtube.com/playlist?list=PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3"
+          :href="playlistUrl"
           target="_blank"
           rel="noopener noreferrer"
+          @click="handlePlaylistClick"
           class="px-6 py-3 text-xs sm:text-sm font-mono uppercase tracking-wider rounded-xl border border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)] hover:text-black transition-all duration-300 flex items-center gap-2 font-bold shadow-[0_0_15px_var(--glow)]"
         >
           <span>PSY Playlist</span>
@@ -90,6 +91,11 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
+
+const playlistUrl = ref('https://www.youtube.com/playlist?list=PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
+const trackLinks = ref({})
+
 const tracks = [
   {
     id: 'PeqQ3pPdqdg',
@@ -118,8 +124,16 @@ const tracks = [
   }
 ]
 
-const getLink = (id) => getYouTubeDeepLink(id)
+onMounted(() => {
+  playlistUrl.value = getYouTubePlaylistDeepLink('PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
+  tracks.forEach(track => {
+    trackLinks.value[track.id] = getYouTubeDeepLink(track.id)
+  })
+})
+
+const getLink = (id) => trackLinks.value[id] || `https://www.youtube.com/watch?v=${id}`
 const handleClick = (id) => handleYouTubeDeepLinkClick(id)
+const handlePlaylistClick = () => handleYouTubePlaylistDeepLinkClick('PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
 </script>
 
 <style scoped>
