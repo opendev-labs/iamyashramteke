@@ -74,15 +74,8 @@ const isVisible = ref(false)
 const playlistUrl = ref('https://www.youtube.com/playlist?list=PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
 
 onMounted(() => {
-  // Check if dismissed before in the current session
-  const isDismissed = sessionStorage.getItem('nukefm-notification-dismissed')
-  if (!isDismissed) {
-    // Show after a short 2-second delay for premium dynamic feel
-    setTimeout(() => {
-      isVisible.value = true
-    }, 2000)
-  }
-
+  // Disabled automatic popup per user request
+  isVisible.value = false
   playlistUrl.value = getYouTubePlaylistDeepLink('PL6dtDmhdCfhc9t1aQMSXUl8oeIQF2MmB3')
 })
 

@@ -16,10 +16,10 @@ import { ref, onMounted } from 'vue';
 const loading = ref(true);
 
 onMounted(() => {
-  // Ensure we hide after initial load
+  // Ensure preloader completes 1-2 animation loops (~3.5s) before fading out
   setTimeout(() => {
     loading.value = false;
-  }, 1500);
+  }, 3500);
 });
 </script>
 
@@ -38,7 +38,7 @@ onMounted(() => {
 .triangle-loader {
   width: 5rem;
   height: 5rem;
-  animation: pulse-loader 2.5s infinite ease-in-out;
+  animation: pulse-loader 2s infinite ease-in-out;
 }
 
 .triangle-loader .triangle-path {
@@ -49,7 +49,7 @@ onMounted(() => {
   stroke-linejoin: round;
   stroke-dasharray: 210;
   stroke-dashoffset: 210;
-  animation: draw-triangle 2.5s infinite ease-in-out;
+  animation: draw-triangle 2s infinite ease-in-out;
   transition: stroke 0.3s ease;
 }
 
